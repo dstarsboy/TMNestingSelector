@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2bP-Bq-hnl" customClass="NestedItemView" customModule="TMNestingSelector" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Jr-8i-9Qh">
+                    <rect key="frame" x="16" y="0.0" width="185" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="arrow-right" translatesAutoresizingMaskIntoConstraints="NO" id="XOf-pR-sCG">
+                    <rect key="frame" x="190" y="44" width="40" height="40"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cuA-qj-YZ1">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <connections>
+                        <action selector="btnOptionTap:" destination="2bP-Bq-hnl" eventType="touchUpInside" id="vFG-Qq-Ca9"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="cuA-qj-YZ1" firstAttribute="bottom" secondItem="0fT-5A-98v" secondAttribute="bottom" id="8zs-XL-KgT"/>
+                <constraint firstItem="cuA-qj-YZ1" firstAttribute="leading" secondItem="0fT-5A-98v" secondAttribute="leading" id="GAf-4O-T67"/>
+                <constraint firstItem="cuA-qj-YZ1" firstAttribute="top" secondItem="0fT-5A-98v" secondAttribute="top" id="YAw-a7-EAn"/>
+                <constraint firstItem="cuA-qj-YZ1" firstAttribute="trailing" secondItem="0fT-5A-98v" secondAttribute="trailing" id="vWd-vp-cM1"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="0fT-5A-98v"/>
+            <connections>
+                <outlet property="btnOption" destination="cuA-qj-YZ1" id="umj-st-AYP"/>
+                <outlet property="imageViewArrow" destination="XOf-pR-sCG" id="eMC-HB-FUo"/>
+                <outlet property="labelTitle" destination="7Jr-8i-9Qh" id="pxZ-m3-Zwp"/>
+            </connections>
+        </view>
+    </objects>
+    <resources>
+        <image name="arrow-right" width="25" height="25"/>
+    </resources>
+</document>
