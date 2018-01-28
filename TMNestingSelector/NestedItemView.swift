@@ -15,13 +15,30 @@ protocol NestedItemViewDelegate {
 class NestedItemView: UIView {
     @IBOutlet weak var labelTitle: UILabel!
     @IBOutlet weak var imageViewArrow: UIImageView!
-    @IBOutlet weak var btnOption: UIButton!
     var delegate: NestedItemViewDelegate?
-    var index = 0
+//    let itemIndex: Int
+//    let stackIndex: Int
+    var itemIndex = 0
     var stackIndex = 0
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.optionTap))
+        self.addGestureRecognizer(tapGesture)
+    }
     
-    @IBAction func btnOptionTap(_ sender: UIButton) {
-        delegate?.nestedItemViewDidTapOption(itemIndex: index, stackIndex: stackIndex)
+//    init(frame: CGRect, stackIndex: Int, itemIndex: Int) {
+//        self.itemIndex = itemIndex
+//        self.stackIndex = stackIndex
+//        super.init(frame: frame)
+//    }
+//
+//    required init?(coder aDecoder: NSCoder) {
+//        super.init(coder: aDecoder)
+//    }
+    
+    @objc func optionTap() {
+        delegate?.nestedItemViewDidTapOption(itemIndex: itemIndex, stackIndex: stackIndex)
     }
 
 }

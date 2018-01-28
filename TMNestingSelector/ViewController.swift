@@ -70,7 +70,7 @@ class ViewController: UIViewController {
                 print(error)
             }
         }
-        nestingSelectorView.setup(data: json ?? generateTestJson(5))
+        nestingSelectorView.setup(data: json ?? generateTestJson(10), nestedKey: "children", itemSize: CGSize(width: 240, height: 128))
     }
     
 }

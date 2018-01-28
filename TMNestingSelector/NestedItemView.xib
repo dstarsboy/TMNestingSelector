@@ -26,25 +26,11 @@
                     <rect key="frame" x="190" y="44" width="40" height="40"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cuA-qj-YZ1">
-                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <connections>
-                        <action selector="btnOptionTap:" destination="2bP-Bq-hnl" eventType="touchUpInside" id="vFG-Qq-Ca9"/>
-                    </connections>
-                </button>
             </subviews>
             <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-            <constraints>
-                <constraint firstItem="cuA-qj-YZ1" firstAttribute="bottom" secondItem="0fT-5A-98v" secondAttribute="bottom" id="8zs-XL-KgT"/>
-                <constraint firstItem="cuA-qj-YZ1" firstAttribute="leading" secondItem="0fT-5A-98v" secondAttribute="leading" id="GAf-4O-T67"/>
-                <constraint firstItem="cuA-qj-YZ1" firstAttribute="top" secondItem="0fT-5A-98v" secondAttribute="top" id="YAw-a7-EAn"/>
-                <constraint firstItem="cuA-qj-YZ1" firstAttribute="trailing" secondItem="0fT-5A-98v" secondAttribute="trailing" id="vWd-vp-cM1"/>
-            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="0fT-5A-98v"/>
             <connections>
-                <outlet property="btnOption" destination="cuA-qj-YZ1" id="umj-st-AYP"/>
                 <outlet property="imageViewArrow" destination="XOf-pR-sCG" id="eMC-HB-FUo"/>
                 <outlet property="labelTitle" destination="7Jr-8i-9Qh" id="pxZ-m3-Zwp"/>
             </connections>
