@@ -43,16 +43,18 @@ class NestingSelectorView: UIView {
     var mainConstraint: NSLayoutConstraint?
     var nestedKey: String!
     let kStackViewTag = 10
+    var isSetup = false
     //var delegate: NestingSelectorViewDelegate?
     
     func addScrollViewWithNoLeadingConstraintContainingStackView() -> (UIScrollView, NestedStackView) {
         let scrollView = UIScrollView()
+        scrollView.showsVerticalScrollIndicator = false
         self.addSubview(scrollView)
-        scrollView.backgroundColor = .red
+        //scrollView.backgroundColor = .red
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.widthAnchor.constraint(equalToConstant: itemSize.width).isActive = true
-        scrollView.topAnchor.constraint(equalTo: self.topAnchor, constant: 40).isActive = true
-        scrollView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -40).isActive = true
+        scrollView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        scrollView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
         let stackView = NestedStackView()
         scrollView.addSubview(stackView)
         stackView.setUpAndConstrainToSuperView()
@@ -61,6 +63,7 @@ class NestingSelectorView: UIView {
     }
     
     func setup(data: [[String: Any]], nestedKey: String, itemSize: CGSize) {
+        isSetup = true
         self.itemSize = itemSize
         self.nestedKey = nestedKey
         //self.delegate = delegate
