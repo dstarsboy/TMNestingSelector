@@ -70,7 +70,41 @@ class ViewController: UIViewController {
                 print(error)
             }
         }
-        nestingSelectorView.setup(data: json ?? generateTestJson(10), nestedKey: "children", itemSize: CGSize(width: 240, height: 128))
+        nestingSelectorView.setup(data: json ?? generateTestJson(10), nestedKey: "children", itemSize: CGSize(width: 240, height: 128), delegate: self)
+    }
+    
+}
+
+extension ViewController: NestingSelectorViewDelegate {
+    func viewForEntryItem(in nestingSelector: NestingSelectorView) -> UIView {
+        let view = UIView()
+        view.backgroundColor = .yellow
+        return view
+    }
+    
+    func viewForExitItem(in nestingSelector: NestingSelectorView) -> UIView {
+        let view = UIView()
+        view.backgroundColor = .green
+        return view
+    }
+    
+    func nestingSelector(_ nestingSelector: NestingSelectorView, didSelectFinalItem dataItem: [String : Any]) {
+        if let name = dataItem["name"] as? String {
+            let alert = UIAlertController(title: "Selected!", message: "\(name)", preferredStyle: .alert)
+            alert.addAction(
+                UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+            )
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func nestingSelector(_ selector: NestingSelectorView, viewFor dataItem: [String : Any]) -> UIView {
+        guard let myItemView = Bundle.main.loadNibNamed("MyItemView", owner: self, options: nil)?.first as? MyItemView else {
+            preconditionFailure()
+        }
+        myItemView.labelTitle.text = dataItem["name"] as? String
+        myItemView.imageViewArrow.isHidden = (dataItem["children"] as? [Any] ?? []).count == 0
+        return myItemView
     }
     
 }

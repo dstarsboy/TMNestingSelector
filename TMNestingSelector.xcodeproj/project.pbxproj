@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1CA67EB8201CF2BC009368DA /* MobileUserInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = 1CA67EB7201CF2BC009368DA /* MobileUserInfo.json */; };
+		1CC5EC5020263AB200997D1C /* MyItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC5EC4F20263AB200997D1C /* MyItemView.swift */; };
 		1CF9D5CC20106781006CA0A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF9D5CB20106781006CA0A1 /* AppDelegate.swift */; };
 		1CF9D5CE20106781006CA0A1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF9D5CD20106781006CA0A1 /* ViewController.swift */; };
 		1CF9D5D120106781006CA0A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CF9D5CF20106781006CA0A1 /* Main.storyboard */; };
@@ -15,11 +16,12 @@
 		1CF9D5D620106781006CA0A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CF9D5D420106781006CA0A1 /* LaunchScreen.storyboard */; };
 		1CF9D5E020106EFB006CA0A1 /* NestingSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF9D5DF20106EFB006CA0A1 /* NestingSelectorView.swift */; };
 		1CF9D5E2201074FB006CA0A1 /* NestedItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF9D5E1201074FB006CA0A1 /* NestedItemView.swift */; };
-		1CF9D5E420107596006CA0A1 /* NestedItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CF9D5E320107596006CA0A1 /* NestedItemView.xib */; };
+		1CF9D5E420107596006CA0A1 /* MyItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CF9D5E320107596006CA0A1 /* MyItemView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1CA67EB7201CF2BC009368DA /* MobileUserInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MobileUserInfo.json; sourceTree = "<group>"; };
+		1CC5EC4F20263AB200997D1C /* MyItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyItemView.swift; sourceTree = "<group>"; };
 		1CF9D5C820106781006CA0A1 /* TMNestingSelector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TMNestingSelector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CF9D5CB20106781006CA0A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1CF9D5CD20106781006CA0A1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -29,7 +31,7 @@
 		1CF9D5D720106781006CA0A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1CF9D5DF20106EFB006CA0A1 /* NestingSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestingSelectorView.swift; sourceTree = "<group>"; };
 		1CF9D5E1201074FB006CA0A1 /* NestedItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestedItemView.swift; sourceTree = "<group>"; };
-		1CF9D5E320107596006CA0A1 /* NestedItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NestedItemView.xib; sourceTree = "<group>"; };
+		1CF9D5E320107596006CA0A1 /* MyItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyItemView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,7 +67,8 @@
 				1CA67EB7201CF2BC009368DA /* MobileUserInfo.json */,
 				1CF9D5CB20106781006CA0A1 /* AppDelegate.swift */,
 				1CF9D5CD20106781006CA0A1 /* ViewController.swift */,
-				1CF9D5E320107596006CA0A1 /* NestedItemView.xib */,
+				1CC5EC4F20263AB200997D1C /* MyItemView.swift */,
+				1CF9D5E320107596006CA0A1 /* MyItemView.xib */,
 				1CF9D5E1201074FB006CA0A1 /* NestedItemView.swift */,
 				1CF9D5DF20106EFB006CA0A1 /* NestingSelectorView.swift */,
 				1CF9D5CF20106781006CA0A1 /* Main.storyboard */,
@@ -137,7 +140,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1CA67EB8201CF2BC009368DA /* MobileUserInfo.json in Resources */,
-				1CF9D5E420107596006CA0A1 /* NestedItemView.xib in Resources */,
+				1CF9D5E420107596006CA0A1 /* MyItemView.xib in Resources */,
 				1CF9D5D620106781006CA0A1 /* LaunchScreen.storyboard in Resources */,
 				1CF9D5D320106781006CA0A1 /* Assets.xcassets in Resources */,
 				1CF9D5D120106781006CA0A1 /* Main.storyboard in Resources */,
@@ -155,6 +158,7 @@
 				1CF9D5CE20106781006CA0A1 /* ViewController.swift in Sources */,
 				1CF9D5E020106EFB006CA0A1 /* NestingSelectorView.swift in Sources */,
 				1CF9D5CC20106781006CA0A1 /* AppDelegate.swift in Sources */,
+				1CC5EC5020263AB200997D1C /* MyItemView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
