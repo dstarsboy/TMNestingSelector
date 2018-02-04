@@ -48,8 +48,8 @@ class NestingSelectorView: UIView {
     var nestedKey: String!
     let kStackViewTag = 10
     var delegate: NestingSelectorViewDelegate?
-    let kSpringDamping: CGFloat = 0.6
-    let kSpringVelocity: CGFloat = 1
+    let kSpringDamping: CGFloat = 0.7
+    let kSpringVelocity: CGFloat = 0.5
     
     func addScrollViewWithNoLeadingConstraintContainingStackView() -> (UIScrollView, NestedStackView) {
         let scrollView = UIScrollView()
@@ -75,6 +75,10 @@ class NestingSelectorView: UIView {
         self.nestedKey = nestedKey
         self.delegate = delegate
         let itemView = NestedItemView(frame: itemRect(), stackIndex: 0, itemIndex: 0)
+        itemView.delegate = self
+        let (scrollView, stackView) = addScrollViewWithNoLeadingConstraintContainingStackView()
+        stackView.addArrangedSubview(itemView)
+        itemView.widthAnchor.constraint(equalToConstant: itemSize.width).isActive = true
         if let topView = self.delegate?.viewForEntryItem(in: self) {
             itemView.addSubview(topView)
             topView.translatesAutoresizingMaskIntoConstraints = false
@@ -83,14 +87,10 @@ class NestingSelectorView: UIView {
             topView.rightAnchor.constraint(equalTo: itemView.rightAnchor).isActive = true
             topView.bottomAnchor.constraint(equalTo: itemView.bottomAnchor).isActive = true
         }
-        itemView.delegate = self
-        let (scrollView, stackView) = addScrollViewWithNoLeadingConstraintContainingStackView()
-        stackView.addArrangedSubview(itemView)
-        itemView.translatesAutoresizingMaskIntoConstraints = true
-        itemView.widthAnchor.constraint(equalToConstant: itemSize.width).isActive = true
         let leading = (self.frame.width / 2) - (itemSize.width / 2)
         mainConstraint = scrollView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: leading)
         mainConstraint?.isActive = true
+        adjustStackConstraints(stackView: stackView, numberOfItems: 1)
         self.layoutIfNeeded()
         scrollView.contentSize = stackView.frame.size
         scrollViews.append(scrollView)
@@ -106,7 +106,6 @@ class NestingSelectorView: UIView {
             let leading = scrollView.leadingAnchor.constraint(equalTo: lastScrollView.trailingAnchor, constant: self.frame.width / 2)
             leading.isActive = true
             adjustStackConstraints(stackView: stackView, numberOfItems: 1)
-            stackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
             self.layoutIfNeeded()
             UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: kSpringDamping, initialSpringVelocity: kSpringVelocity, options: .curveEaseOut, animations: {
                 leading.constant = self.horizontalSpacing
@@ -117,6 +116,9 @@ class NestingSelectorView: UIView {
             })
         }
         let itemView = NestedItemView(frame: itemRect(), stackIndex: -1, itemIndex: 0)
+        itemView.delegate = self
+        stackView.addArrangedSubview(itemView)
+        itemView.widthAnchor.constraint(equalToConstant: itemSize.width).isActive = true
         if let topView = self.delegate?.viewForExitItem(in: self) {
             itemView.addSubview(topView)
             topView.translatesAutoresizingMaskIntoConstraints = false
@@ -125,37 +127,23 @@ class NestingSelectorView: UIView {
             topView.rightAnchor.constraint(equalTo: itemView.rightAnchor).isActive = true
             topView.bottomAnchor.constraint(equalTo: itemView.bottomAnchor).isActive = true
         }
-        itemView.delegate = self
-        stackView.addArrangedSubview(itemView)
-        itemView.translatesAutoresizingMaskIntoConstraints = false
-        itemView.widthAnchor.constraint(equalToConstant: itemSize.width).isActive = true
         dataTree.append([[:]])
         scrollViews.append(scrollView)
     }
     
     func loadNextStackView(data: [[String: Any]], delay: TimeInterval) {
-        dataTree.append(data)
         let (scrollView, stackView) = addScrollViewWithNoLeadingConstraintContainingStackView()
         let stackIndex = scrollViews.count
-        if let lastScrollView = scrollViews.last {
-            if horizontalSpacing == 0 {
-                horizontalSpacing = (self.frame.width - (itemSize.width * 3)) / 4
-            }
-            let leading = scrollView.leadingAnchor.constraint(equalTo: lastScrollView.trailingAnchor, constant: self.frame.width / 2)
-            leading.isActive = true
-            adjustStackConstraints(stackView: stackView, numberOfItems: data.count)
-            stackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
-            self.layoutIfNeeded()
-            UIView.animate(withDuration: 1, delay: delay, usingSpringWithDamping: kSpringDamping, initialSpringVelocity: kSpringVelocity, options: .curveEaseOut, animations: {
-                leading.constant = self.horizontalSpacing
-                self.layoutIfNeeded()
-            }, completion: {
-                _ in
-                scrollView.contentSize = stackView.frame.size
-            })
-        }
         for i in 0 ..< data.count {
             let itemView = NestedItemView(frame: itemRect(), stackIndex: stackIndex, itemIndex: i)
+            itemView.backgroundColor = .red
+            itemView.delegate = self
+            stackView.addArrangedSubview(itemView)
+            itemView.translatesAutoresizingMaskIntoConstraints = false
+            itemView.widthAnchor.constraint(equalToConstant: itemSize.width).isActive = true
+            let h = itemView.heightAnchor.constraint(equalToConstant: itemSize.height)
+            h.priority = .defaultHigh
+            h.isActive = true
             if let topView = delegate?.nestingSelector(self, viewFor: data[i]) {
                 itemView.addSubview(topView)
                 topView.translatesAutoresizingMaskIntoConstraints = false
@@ -164,14 +152,22 @@ class NestingSelectorView: UIView {
                 topView.rightAnchor.constraint(equalTo: itemView.rightAnchor).isActive = true
                 topView.bottomAnchor.constraint(equalTo: itemView.bottomAnchor).isActive = true
             }
-            itemView.delegate = self
-            stackView.addArrangedSubview(itemView)
-            itemView.translatesAutoresizingMaskIntoConstraints = false
-            itemView.widthAnchor.constraint(equalToConstant: itemSize.width).isActive = true
-            let h = itemView.heightAnchor.constraint(equalToConstant: itemSize.height)
-            h.priority = .defaultLow
-            h.isActive = true
         }
+        if let lastScrollView = scrollViews.last {
+            if horizontalSpacing == 0 {
+                horizontalSpacing = (self.frame.width - (itemSize.width * 3)) / 4
+            }
+            let leading = scrollView.leadingAnchor.constraint(equalTo: lastScrollView.trailingAnchor, constant: self.frame.width / 2)
+            leading.isActive = true
+            adjustStackConstraints(stackView: stackView, numberOfItems: data.count)
+            self.layoutIfNeeded()
+            scrollView.contentSize = stackView.frame.size
+            UIView.animate(withDuration: 1, delay: delay, usingSpringWithDamping: kSpringDamping, initialSpringVelocity: kSpringVelocity, options: .curveEaseOut, animations: {
+                leading.constant = self.horizontalSpacing
+                self.layoutIfNeeded()
+            }, completion: nil)
+        }
+        dataTree.append(data)
         scrollViews.append(scrollView)
     }
     
@@ -191,7 +187,6 @@ class NestingSelectorView: UIView {
 
 extension NestingSelectorView: NestedItemViewDelegate {
     func nestedItemViewDidTapOption(itemIndex: Int, stackIndex: Int) {
-        print("itemIndex \(itemIndex) stackIndex \(stackIndex)")
         if stackIndex == -1 { //this the final selection
             delegate?.nestingSelector(self, didSelectFinalItem: currentSelection)
             return

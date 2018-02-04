@@ -15,19 +15,29 @@
         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2bP-Bq-hnl" customClass="MyItemView" customModule="TMNestingSelector" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Jr-8i-9Qh">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Jr-8i-9Qh">
                     <rect key="frame" x="16" y="0.0" width="185" height="128"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="arrow-right" translatesAutoresizingMaskIntoConstraints="NO" id="XOf-pR-sCG">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow-right" translatesAutoresizingMaskIntoConstraints="NO" id="XOf-pR-sCG">
                     <rect key="frame" x="190" y="44" width="40" height="40"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="DFq-zV-sr5"/>
+                        <constraint firstAttribute="height" constant="40" id="pfR-Xg-oVm"/>
+                    </constraints>
                 </imageView>
             </subviews>
             <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="7Jr-8i-9Qh" firstAttribute="leading" secondItem="0fT-5A-98v" secondAttribute="leading" constant="16" id="Euy-6t-ptD"/>
+                <constraint firstItem="7Jr-8i-9Qh" firstAttribute="bottom" secondItem="0fT-5A-98v" secondAttribute="bottom" id="PNm-2D-yZd"/>
+                <constraint firstItem="7Jr-8i-9Qh" firstAttribute="top" secondItem="0fT-5A-98v" secondAttribute="top" id="exz-QB-jh3"/>
+                <constraint firstItem="0fT-5A-98v" firstAttribute="trailing" secondItem="XOf-pR-sCG" secondAttribute="trailing" constant="10" id="goN-ET-pSb"/>
+                <constraint firstItem="0fT-5A-98v" firstAttribute="trailing" secondItem="7Jr-8i-9Qh" secondAttribute="trailing" constant="39" id="ife-qS-Gwk"/>
+                <constraint firstItem="XOf-pR-sCG" firstAttribute="centerY" secondItem="2bP-Bq-hnl" secondAttribute="centerY" id="y0y-l8-nF0"/>
+            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="0fT-5A-98v"/>
             <connections>

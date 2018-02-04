@@ -79,12 +79,26 @@ extension ViewController: NestingSelectorViewDelegate {
     func viewForEntryItem(in nestingSelector: NestingSelectorView) -> UIView {
         let view = UIView()
         view.backgroundColor = .yellow
+        let label = UILabel()
+        label.text = "Select a Territory"
+        view.addSubview(label)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        label.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        label.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         return view
     }
     
     func viewForExitItem(in nestingSelector: NestingSelectorView) -> UIView {
         let view = UIView()
         view.backgroundColor = .green
+        let label = UILabel()
+        label.text = "Confirm Selection"
+        view.addSubview(label)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        label.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        label.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         return view
     }
     
