@@ -15,38 +15,71 @@
         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2bP-Bq-hnl" customClass="MyItemView" customModule="TMNestingSelector" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Jr-8i-9Qh">
-                    <rect key="frame" x="16" y="0.0" width="185" height="128"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow-right" translatesAutoresizingMaskIntoConstraints="NO" id="XOf-pR-sCG">
-                    <rect key="frame" x="190" y="44" width="40" height="40"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tyj-1m-7ZM">
+                    <rect key="frame" x="41" y="29" width="199" height="70"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Jr-8i-9Qh">
+                            <rect key="frame" x="58" y="0.0" width="133" height="70"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="40" id="DFq-zV-sr5"/>
-                        <constraint firstAttribute="height" constant="40" id="pfR-Xg-oVm"/>
+                        <constraint firstItem="7Jr-8i-9Qh" firstAttribute="top" secondItem="Tyj-1m-7ZM" secondAttribute="top" id="Fq3-bv-Vku"/>
+                        <constraint firstAttribute="trailing" secondItem="7Jr-8i-9Qh" secondAttribute="trailing" constant="8" id="L0C-Q5-tfc"/>
+                        <constraint firstAttribute="bottom" secondItem="7Jr-8i-9Qh" secondAttribute="bottom" id="Wlu-69-9Gv"/>
+                        <constraint firstItem="7Jr-8i-9Qh" firstAttribute="leading" secondItem="Tyj-1m-7ZM" secondAttribute="leading" constant="58" id="XlV-7i-GR2"/>
+                        <constraint firstAttribute="width" constant="199" id="bjf-XU-Ktk"/>
+                        <constraint firstAttribute="height" constant="70" id="rJP-cf-eaq"/>
                     </constraints>
-                </imageView>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ibg-vD-vCA">
+                    <rect key="frame" x="0.0" y="19" width="90" height="90"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="globe-check" translatesAutoresizingMaskIntoConstraints="NO" id="dyj-UR-4ad">
+                            <rect key="frame" x="17.5" y="17.5" width="56" height="56"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="56" id="4P2-jp-QiY"/>
+                                <constraint firstAttribute="height" constant="56" id="Php-5D-BqX"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                    <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" red="0.59215686274509804" green="0.59215686274509804" blue="0.59215686274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="90" id="TuF-Dp-FIq"/>
+                        <constraint firstAttribute="width" constant="90" id="gki-Mz-SyX"/>
+                        <constraint firstItem="dyj-UR-4ad" firstAttribute="centerY" secondItem="ibg-vD-vCA" secondAttribute="centerY" id="uEY-xr-L0d"/>
+                        <constraint firstItem="dyj-UR-4ad" firstAttribute="centerX" secondItem="ibg-vD-vCA" secondAttribute="centerX" id="z72-MY-XNl"/>
+                    </constraints>
+                </view>
             </subviews>
-            <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="7Jr-8i-9Qh" firstAttribute="leading" secondItem="0fT-5A-98v" secondAttribute="leading" constant="16" id="Euy-6t-ptD"/>
-                <constraint firstItem="7Jr-8i-9Qh" firstAttribute="bottom" secondItem="0fT-5A-98v" secondAttribute="bottom" id="PNm-2D-yZd"/>
-                <constraint firstItem="7Jr-8i-9Qh" firstAttribute="top" secondItem="0fT-5A-98v" secondAttribute="top" id="exz-QB-jh3"/>
-                <constraint firstItem="0fT-5A-98v" firstAttribute="trailing" secondItem="XOf-pR-sCG" secondAttribute="trailing" constant="10" id="goN-ET-pSb"/>
-                <constraint firstItem="0fT-5A-98v" firstAttribute="trailing" secondItem="7Jr-8i-9Qh" secondAttribute="trailing" constant="39" id="ife-qS-Gwk"/>
-                <constraint firstItem="XOf-pR-sCG" firstAttribute="centerY" secondItem="2bP-Bq-hnl" secondAttribute="centerY" id="y0y-l8-nF0"/>
+                <constraint firstItem="Tyj-1m-7ZM" firstAttribute="trailing" secondItem="0fT-5A-98v" secondAttribute="trailing" id="FJb-cj-v5A"/>
+                <constraint firstItem="Tyj-1m-7ZM" firstAttribute="centerY" secondItem="2bP-Bq-hnl" secondAttribute="centerY" id="HE5-Rx-gu8"/>
+                <constraint firstItem="ibg-vD-vCA" firstAttribute="centerY" secondItem="2bP-Bq-hnl" secondAttribute="centerY" id="hHa-tA-O5v"/>
+                <constraint firstItem="ibg-vD-vCA" firstAttribute="leading" secondItem="0fT-5A-98v" secondAttribute="leading" id="qww-uo-UwJ"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="0fT-5A-98v"/>
             <connections>
-                <outlet property="imageViewArrow" destination="XOf-pR-sCG" id="eMC-HB-FUo"/>
+                <outlet property="imageViewType" destination="dyj-UR-4ad" id="6f0-at-VXo"/>
                 <outlet property="labelTitle" destination="7Jr-8i-9Qh" id="pxZ-m3-Zwp"/>
+                <outlet property="viewIconArea" destination="ibg-vD-vCA" id="T7f-gT-4dO"/>
+                <outlet property="viewTitleArea" destination="Tyj-1m-7ZM" id="nQ8-yz-Xt0"/>
             </connections>
+            <point key="canvasLocation" x="26" y="57"/>
         </view>
     </objects>
     <resources>
-        <image name="arrow-right" width="25" height="25"/>
+        <image name="globe-check" width="90" height="90"/>
     </resources>
 </document>

@@ -77,29 +77,25 @@ class ViewController: UIViewController {
 
 extension ViewController: NestingSelectorViewDelegate {
     func viewForEntryItem(in nestingSelector: NestingSelectorView) -> UIView {
-        let view = UIView()
-        view.backgroundColor = .yellow
-        let label = UILabel()
-        label.text = "Select a Territory"
-        view.addSubview(label)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        label.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        label.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        return view
+        guard let myItemView = Bundle.main.loadNibNamed("MyItemView", owner: self, options: nil)?.first as? MyItemView else {
+            preconditionFailure()
+        }
+        myItemView.imageViewType.image = UIImage(named: "location-map")
+        myItemView.viewTitleArea.backgroundColor = .white
+        myItemView.viewIconArea.backgroundColor = #colorLiteral(red: 0.2901960784, green: 0.5647058824, blue: 0.8862745098, alpha: 1)
+        myItemView.labelTitle.text = "Let's activate one of your territories."
+        return myItemView
     }
     
     func viewForExitItem(in nestingSelector: NestingSelectorView) -> UIView {
-        let view = UIView()
-        view.backgroundColor = .green
-        let label = UILabel()
-        label.text = "Confirm Selection"
-        view.addSubview(label)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        label.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        label.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        return view
+        guard let myItemView = Bundle.main.loadNibNamed("MyItemView", owner: self, options: nil)?.first as? MyItemView else {
+            preconditionFailure()
+        }
+        myItemView.imageViewType.image = UIImage(named: "location-pin-check-1")
+        myItemView.viewTitleArea.backgroundColor = .white
+        myItemView.viewIconArea.backgroundColor = #colorLiteral(red: 0.4941176471, green: 0.8274509804, blue: 0.1294117647, alpha: 1)
+        myItemView.labelTitle.text = "Confirm selection?"
+        return myItemView
     }
     
     func nestingSelector(_ nestingSelector: NestingSelectorView, didSelectFinalItem dataItem: [String : Any]) {
@@ -117,7 +113,11 @@ extension ViewController: NestingSelectorViewDelegate {
             preconditionFailure()
         }
         myItemView.labelTitle.text = dataItem["name"] as? String
-        myItemView.imageViewArrow.isHidden = (dataItem["children"] as? [Any] ?? []).count == 0
+        if (dataItem["children"] as? [Any] ?? []).count == 0 {
+            myItemView.imageViewType.image = UIImage(named: "globe-check")
+        } else {
+            myItemView.imageViewType.image = UIImage(named: "globe-share")
+        }
         return myItemView
     }
     

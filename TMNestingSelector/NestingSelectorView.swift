@@ -136,7 +136,6 @@ class NestingSelectorView: UIView {
         let stackIndex = scrollViews.count
         for i in 0 ..< data.count {
             let itemView = NestedItemView(frame: itemRect(), stackIndex: stackIndex, itemIndex: i)
-            itemView.backgroundColor = .red
             itemView.delegate = self
             stackView.addArrangedSubview(itemView)
             itemView.translatesAutoresizingMaskIntoConstraints = false

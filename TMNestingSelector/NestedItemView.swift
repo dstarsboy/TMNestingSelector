@@ -21,7 +21,7 @@ class NestedItemView: UIView {
         super.init(frame: frame)
         self.itemIndex = itemIndex
         self.stackIndex = stackIndex
-        self.backgroundColor = .blue
+        self.backgroundColor = .clear
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.optionTap))
         self.addGestureRecognizer(tapGesture)
     }
